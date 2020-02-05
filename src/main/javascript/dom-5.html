@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        // 关于节点的属性：nodeType，nodeName，nodeValue
+        // 在文档中，任何一个节点都有这三个熟悉
+        window.onload = function () {
+
+            // 元素节点的这三个属性
+            var bjNode = document.getElementById("bj");
+            // 1
+            alert(bjNode.nodeType);
+            // Li
+            alert(bjNode.nodeName);
+            // null
+            alert(bjNode.nodeValue);
+
+            // 属性节点
+            var nameAttr = document.getElementById("name").getAttributeNode("name");
+            // 2
+            alert(nameAttr.nodeType);
+            // name
+            alert(nameAttr.nodeName);
+            // username
+            alert(nameAttr.nodeValue);
+
+            // nodeType、nodeName 是只读的
+            // nodeValue是可以被改变的
+
+        }
+    </script>
+
+</head>
+
+
+<body>
+<p>你喜欢哪个城市？</p>
+<ul id="city"><li id="bj" name="BeiJing">北京</li>
+    <li>上海</li>
+    <li>东京</li>
+    <li>首尔</li>
+</ul>
+
+<br><br>
+<p>你喜欢哪款游戏？</p>
+<ul id="game">
+    <li id="rl">红警</li>
+    <li>实况</li>
+    <li>极品飞车</li>
+    <li>魔兽</li>
+</ul>
+
+<br><br>
+name:<input type="text" name="username" id="name" value="atguigu"/>
+<!--gender:-->
+<!--<input type="radio" name="gender" value="male"/>Male-->
+<!--<input type="radio" name="gender" value="male"/>Female-->
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        window.onload = function () {
+
+            // 获取city节点的所有子节点
+            var cityNode = document.getElementById("city");
+            // 利用元素节点的childNodes方法可以获取指定元素节点的所有子节点
+            // 但该方法不实用
+            alert(cityNode.childNodes.length);
+
+            // 获取city节点的所有li子节点
+            var cityLiNodes = cityNode.getElementsByTagName("li");
+            alert(cityLiNodes.length)
+
+            // 获取指定节点的第一个节点和最后一个节点
+            alert(cityNode.firstChild);
+            alert(cityNode.lastChild);
+
+        }
+    </script>
+
+</head>
+
+
+<body>
+<p>你喜欢哪个城市？</p>
+<ul id="city"><li id="bj" name="BeiJing">北京</li>
+    <li>上海</li>
+    <li>东京</li>
+    <li>首尔</li>
+</ul>
+
+<br><br>
+<p>你喜欢哪款游戏？</p>
+<ul id="game">
+    <li id="rl">红警</li>
+    <li>实况</li>
+    <li>极品飞车</li>
+    <li>魔兽</li>
+</ul>
+
+<br><br>
+name:<input type="text" name="username" id="name" value="atguigu"/>
+<!--gender:-->
+<!--<input type="radio" name="gender" value="male"/>Male-->
+<!--<input type="radio" name="gender" value="male"/>Female-->
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+
+        // 节点的类型：元素节点、属性节点、文本节点
+        // 通常情况下操作属性节点通过 元素节点.属性名 的方式来读写属性值
+
+        // 写JS代码的位置
+        // 写在
+        // window.onload = function () {
+        //     弹出对话框
+        //     alert("helloworld");
+        // }
+
+        // 如何获取元素节点
+        // 1 根据id获取，该方法为document对象独有
+        // 2 根据标签名
+        // 3 根据name属性名，若HTML元素本身没有name属性，我们强行添加一个name属性，对于ie浏览器无效
+
+        // 获取子节点
+        // 1 父节点.childNodes
+        // 2 firstChild，当获取本节点的文本节点时用
+        // 3 lastChild
+
+        // 读写文本节点
+        // 1 文本节点一定是元素节点的子节点
+        // 2 获取步骤：获取文本节点所在的元素节点，使用元素节点的firstChild获取到文本节点，使用文本节点的nodeValue去读写
+
+        // 节点的通用属性
+        // nodeType 元素节点return1 属性节点return2 文本节点return3
+        // nodeName 返回对于节点的名字
+        // nodeValue  元素节点return null，属性节点return属性值，文本节点返回文本值
+
+        // 属性节点
+        // 一般情况下不单独获取属性节点，而是通过元素节点.属性名读写属性值
+
+        window.onload = function () {
+
+            var test = document.getElementById("name");
+            // alert(test.name);
+            alert(test.name.nodeType);
+            alert(test.name.nodeValue);
+
+        }
+
+
+    </script>
+
+</head>
+
+
+<body>
+<p>你喜欢哪个城市？</p>
+<ul id="city"><li id="bj" name="BeiJing">北京</li>
+    <li>上海</li>
+    <li>东京</li>
+    <li>首尔</li>
+</ul>
+
+<br><br>
+<p>你喜欢哪款游戏？</p>
+<ul id="game">
+    <li id="rl">红警</li>
+    <li>实况</li>
+    <li>极品飞车</li>
+    <li>魔兽</li>
+</ul>
+
+<br><br>
+
+gender:
+<input type="radio" name="gender" value="male"/>Male
+<input type="radio" name="gender" value="male"/>Female
+
+<br><br>
+name:<input type="text" name="username" id="name" value="atguigu"/>
+
+</body>
+</html>

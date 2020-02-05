@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        window.onload = function () {
+
+            var nameNode = document.getElementById("name");
+
+            alert(nameNode.value);
+
+            nameNode.value = "尚硅谷";
+
+        }
+    </script>
+
+</head>
+
+
+<body>
+<p>你喜欢哪个城市？</p>
+<ul id="city">
+    <li id="bj" name="BeiJing">北京</li>
+    <li>上海</li>
+    <li>东京</li>
+    <li>首尔</li>
+</ul>
+
+<br><br>
+<p>你喜欢哪款游戏？</p>
+<ul id="game">
+    <li id="rl">红警</li>
+    <li>实况</li>
+    <li>极品飞车</li>
+    <li>魔兽</li>
+</ul>
+
+<br><br>
+name:<input type="text" name="username" id="name" value="atguigu"/>
+<!--gender:-->
+<!--<input type="radio" name="gender" value="male"/>Male-->
+<!--<input type="radio" name="gender" value="male"/>Female-->
+</body>
+</html>

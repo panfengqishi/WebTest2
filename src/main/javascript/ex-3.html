@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+
+        window.onload = function () {
+
+            function showContent(liNodeTemp) {
+                alert("^_^"+liNodeTemp.firstChild.nodeValue)
+            }
+
+            var liNodes = document.getElementsByTagName("li");
+            for (var i = 0; i < liNodes.length; i++) {
+                liNodes[i].onclick = function () {
+                    showContent(this);
+                }
+            }
+
+
+            // 获取#submit 对应的按钮 submitBtn
+            var submit = document.getElementById("submit");
+            // 为submitBtn 添加onclick 响应函数
+            submit.onclick = function () {
+
+                // 在onclick 相应函数的结尾处添加一个return false，就可以取消提交按钮的默认行为
+                // 检查类型是否被选中，若没有选择给出提示："请选择类型"
+                // 选择所有name="type"的节点types
+                var types = document.getElementsByName("type");
+
+                // 遍历types，检查其中是否有一个type的checked属性存在，就可说明有一个type被选中了
+                var typeVal = null;
+                for (var i = 0; i < types.length; i++) {
+                    if (types[i].checked) {
+                        typeVal = types[i].value;
+                        break;
+                    }
+                }
+
+                if (typeVal == null) {
+                    alert("请选择类型");
+                    return false;
+                }
+
+                // alert(typeVal);
+
+                // 通过 if(元素节点.属性名) 来获取元素节点是否有属性名
+                // 响应方法结束
+                // 获取name="name"的文本值：通过value属性：nameVal
+                var nameEle = document.getElementsByName("name")[0];
+                var nameVal = nameEle.value;
+
+
+                // 去除nameVal前后的空格
+                var reg = /^\s*|\s*$
+                /g;
+                nameVal = nameVal.replace(reg, "");
+                // 把nameVal和""进行比较，若是""说明只输入了空格，弹出请输入内容
+                if (nameVal == "") {
+                    alert("请输入内容");
+                    return false;
+                } else {
+                    alert(nameVal);
+                }
+                // 创建li节点
+                var liNode = document.createElement("li");
+                // 利用nameVal创建文本节点
+                var content = document.createTextNode(nameVal);
+                // 添加到文档中
+                liNode.appendChild(content);
+                // 添加相应函数
+                liNode.onclick = function(){
+                    showContent(this);
+                }
+
+
+                document.getElementById(typeVal).appendChild(liNode);
+
+                return false;
+            }
+
+        }
+
+
+    </script>
+
+</head>
+
+
+<body>
+<p>你喜欢哪个城市？</p>
+<ul id="city">
+    <li id="bj" name="BeiJing">北京</li>
+    <li>上海</li>
+    <li>东京</li>
+    <li>首尔</li>
+</ul>
+
+<br><br>
+<p>你喜欢哪款游戏？</p>
+<ul id="game">
+    <li id="rl">红警</li>
+    <li>实况</li>
+    <li>极品飞车</li>
+    <li>魔兽</li>
+</ul>
+
+<br><br>
+
+<form action="1.html" my="myform">
+    <input type="radio" name="type" value="city"/>城市
+    <input type="radio" name="type" value="game"/>游戏
+
+    name:<input type="text" name="name"/>
+
+    <input type="submit" value="Submit" id="submit"/>
+</form>
+
+
+</body>
+</html>
